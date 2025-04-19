@@ -1,0 +1,18 @@
+name: pytorch_docs_minimal
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip=23.0.1
+  - flask=2.2.3
+  - openai=1.2.4
+  - python-dotenv=1.0.0
+  - tqdm=4.66.1
+  - numpy=1.26.4
+  - werkzeug=2.2.3
+  - pip:
+    - chromadb==0.4.18
+    - tree-sitter==0.20.1
+    - tree-sitter-languages==1.7.0
+    - flask-cors==3.0.10
