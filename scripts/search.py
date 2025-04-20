@@ -12,17 +12,17 @@ import argparse
 # Add parent directory to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from ptsearch.database import DatabaseManager
-from ptsearch.embedding import EmbeddingGenerator
-from ptsearch.search import SearchEngine
-from ptsearch.config import MAX_RESULTS
+from ptsearch.core.database import DatabaseManager
+from ptsearch.core.embedding import EmbeddingGenerator
+from ptsearch.core.search import SearchEngine
+from ptsearch.config.settings import settings
 
 def main():
     # Parse arguments
     parser = argparse.ArgumentParser(description='Search PyTorch documentation')
     parser.add_argument('query', nargs='?', help='The search query')
     parser.add_argument('--interactive', '-i', action='store_true', help='Run in interactive mode')
-    parser.add_argument('--results', '-n', type=int, default=MAX_RESULTS, help='Number of results to return')
+    parser.add_argument('--results', '-n', type=int, default=settings.max_results, help='Number of results to return')
     parser.add_argument('--filter', '-f', choices=['code', 'text'], help='Filter results by type')
     parser.add_argument('--json', '-j', action='store_true', help='Output results as JSON')
     args = parser.parse_args()
